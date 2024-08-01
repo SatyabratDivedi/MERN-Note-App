@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Slider from "./components/leftSlider/Slider";
 import AddNoteWraper from "./components/addNoteWraperPopUp/AddNotePopUp.jsx";
 import { Outlet, useLocation } from "react-router-dom";
@@ -8,6 +8,7 @@ function App() {
   const [openWraper, setOpenWraper] = useState(false);
   const [showStartingPage, setShowStartingPage] = useState(true);
   const match = useLocation();
+
   useEffect(() => {
     if (match.pathname == "/") {
       setShowStartingPage(true);
@@ -15,6 +16,7 @@ function App() {
       setShowStartingPage(false);
     }
   }, [match.pathname]);
+
   return (
     <>
       <div>

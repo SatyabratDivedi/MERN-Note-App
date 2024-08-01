@@ -30,6 +30,7 @@ route.get("/allGroupsData", async (req, res) => {
     res.status(500).json({ msg: "server error" });
   }
 });
+
 route.post("/savePost", async (req, res) => {
   const { postText, groupId } = req.body;
   const findGroup = await groupeModel.findById(groupId);

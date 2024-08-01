@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import style from "./noteTextArea.module.css";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { IoSend } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
 import { FaBars } from "react-icons/fa6";
