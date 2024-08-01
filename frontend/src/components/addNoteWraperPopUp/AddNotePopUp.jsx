@@ -27,7 +27,7 @@ function AddNoteWraper({ setOpenWraper }) {
     } else if (edit.color === "") {
       return toast.error("Please fill the group color", { duration: 1500 });
     }
-    const res = await fetch("http://localhost:3000/api/createGroup", {
+    const res = await fetch("https://mern-note-app-backend.vercel.app/api/createGroup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

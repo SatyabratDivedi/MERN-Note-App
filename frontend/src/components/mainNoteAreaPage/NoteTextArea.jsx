@@ -20,7 +20,7 @@ function NoteTextArea() {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/allGroupsData");
+      const res = await fetch("https://mern-note-app-backend.vercel.app/api/allGroupsData");
       const data = await res.json();
       setGroupData(data?.data);
     } catch (error) {
@@ -34,7 +34,7 @@ function NoteTextArea() {
   const savePostHandler = async () => {
     const toastId = toast.loading("Saving post...");
     try {
-      const res = await fetch("http://localhost:3000/api/savePost", {
+      const res = await fetch("https://mern-note-app-backend.vercel.app/api/savePost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function NoteTextArea() {
   };
 
   const oneDataDelete = async (index) => {
-    const res = await fetch("http://localhost:3000/api/deletePost", {
+    const res = await fetch("https://mern-note-app-backend.vercel.app/api/deletePost", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

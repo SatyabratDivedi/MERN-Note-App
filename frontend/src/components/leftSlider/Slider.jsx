@@ -16,7 +16,7 @@ function Slider({ setOpenWraper, openWraper }) {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/allGroupsData");
+      const res = await fetch("https://mern-note-app-backend.vercel.app/api/allGroupsData");
       const data = await res.json();
       setReceiveData(data?.data);
       setShowSkeleton(false);
