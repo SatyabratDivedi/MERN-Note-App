@@ -1,18 +1,18 @@
 const dotenv = require("dotenv");
 dotenv.config();
-const cors = require("cors"); 
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const route = require("./api/todoPostAPI");
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://mern-note1-app.vercel.app",
     credentials: true,
   })
 );
