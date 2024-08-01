@@ -12,7 +12,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.use(
   cors({
-    origin: "https://mern-note1-app.vercel.app",
+    origin: "https://mern-note-app1.netlify.app",
     credentials: true,
   })
 );
