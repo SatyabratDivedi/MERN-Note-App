@@ -12,7 +12,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://mern-note1-app.vercel.app",
     credentials: true,
   })
 );
