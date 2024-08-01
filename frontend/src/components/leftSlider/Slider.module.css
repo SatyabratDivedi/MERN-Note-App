@@ -1,0 +1,122 @@
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 10px 0px 30px -10px rgba(71, 70, 70, 0.75);
+  -webkit-box-shadow: 10px 0px 30px -10px rgba(111, 107, 107, 0.75);
+  transition: all 0.5s;
+}
+.crossBTN {
+  font-size: 3rem;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1000;
+  top: 15px;
+  right: 30px;
+}
+
+@media screen and (min-width: 800px) {
+  .crossBTN {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .addNots {
+    left: 14% !important;
+  }
+}
+@media screen and (max-width: 800px) {
+  .addNots {
+    left: 70% !important;
+  }
+  .slider {
+    width: 100%;
+    z-index: 101;
+  }
+  .noteHeaderMain {
+    width:95% !important;
+  }
+}
+
+.noteHeaderMain {
+  width: 25%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  font-style: normal;
+  text-align: center;
+  padding-block: 20px;
+  background-color: #f1f1f1;
+  position: fixed;
+  z-index: 2;
+}
+.noteHeader{
+  text-decoration: none;
+  color: black;
+}
+.nameArea {
+  width: 100%;
+  margin-top: 30%;
+  z-index: 1;
+}
+
+.nameBox {
+  margin-block:10px ;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-block: 10px;
+  text-decoration: none;
+  color: black;
+  transition-duration: 300ms;
+  border-radius: 16px;
+}
+.nameBox:hover {
+  background-color: #dcdcdc;
+}
+.active {
+  background-color: #dcdcdc;
+}
+.groupSortName {
+  font-size: 1.8rem;
+  color: #dae5f5;
+  display: grid;
+  place-items: center;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  margin-left: 30px;
+}
+.groupName {
+  font-size: 2rem;
+}
+.addGroupName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addNots {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #16008b;
+  color: #dae5f5;
+  position: fixed;
+  bottom: 20px;
+  left: 17%;
+  z-index: 200;
+  cursor: pointer;
+  transition-duration: 500ms;
+}
+.addNots:hover {
+  transform: scale(1.07) rotate(90deg);
+}

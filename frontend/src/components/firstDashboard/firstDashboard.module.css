@@ -1,0 +1,60 @@
+.noteAreaMain {
+  width: 75%;
+  height: 100vh;
+  background: #dae5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 800px) {
+  .noteAreaMain {
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 800px) {
+  .barBTN {
+    display: none;
+  }
+}
+.barBTN {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  font-size: 3rem;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.noNote {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.noteTXT {
+  font-size: 4rem;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+
+.para {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #3f3f3f;
+  text-align: center;
+}
+.imgArea {
+  width: 50%;
+  margin-top: auto;
+}
+.encryptTXT {
+  font-size: 1.4rem;
+  margin-top: auto;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 5px;
+}

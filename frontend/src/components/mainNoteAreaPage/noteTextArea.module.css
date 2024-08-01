@@ -1,0 +1,129 @@
+.textAreaContainer {
+  width: 75%;
+  min-height: 100vh;
+  background: #dae5f5;
+}
+.barBTN{
+  font-size: 2.5rem;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+@media screen and (min-width: 800px) {
+  .barBTN{
+   display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .textAreaContainer {
+    width: 100% !important;
+  }
+  .headerArea{
+    width: 100% !important;
+  }
+  .footerArea {
+    width: 100% !important;
+  }
+  .textStoreArea {
+    width: 100% !important;
+  }
+}
+
+.headerArea {
+  position: fixed;
+  top: 0;
+  width: 75%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 20px;
+  padding-block: 10px;
+  transition-duration: 300ms;
+  background-color: blue;
+}
+.headerDeleteBotton {
+  position: absolute;
+  right: 20px;
+  font-size: 2.6rem;
+  cursor: pointer;
+}
+.groupSortName {
+  font-size: 2rem;
+  color: #dae5f5;
+  display: grid;
+  place-items: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.groupName {
+  font-size: 2rem;
+}
+.textStoreArea {
+  margin-top: 100px;
+  width: 75%;
+  height: 700px;
+  position: fixed;
+  overflow-y: scroll
+}
+.textStoreAreaBoxMain{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  padding-bottom: 23vh;
+}
+.textStoreAreaBox {
+  background-color: white;
+  padding: 30px 20px 50px 20px;
+  font-size: 1.4rem;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0px 6px 7px 0 rgba(0, 0, 0, 0.1);
+}
+.dateArea {
+  overflow-y: scroll;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+.deleteArea {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  font-size: 2.6rem;
+  cursor: pointer;
+}
+.footerArea {
+  width: 75%;
+  height: 20vh;
+  background-color: blue;
+  position: fixed;
+  bottom: 0;
+  padding: 20px;
+}
+.footerArea input {
+  width: 100%;
+  height: 100%;
+  font-size: 1.7rem;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+.sentBox {
+  position: absolute;
+  cursor: pointer;
+  bottom: 30px;
+  right: 30px;
+  background-color: white;
+  border: none;
+}
+

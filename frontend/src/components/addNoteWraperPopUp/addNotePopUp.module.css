@@ -1,0 +1,88 @@
+.addNoteWraper {
+
+  background-color: white;
+  border-radius: 15px;
+  width: 35%;
+  position: fixed;
+}
+
+@media screen and (max-width: 1300px) {
+  .addNoteWraper {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .addNoteWraper {
+    width: 45%;
+  }
+  .mainBox {
+    padding: 20px !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .addNoteWraper {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .addNoteWraper {
+    width: 60%;
+  }
+  .mainBox {
+    padding: 10px !important;
+  }
+  .colorBox {
+    padding-right: 0px !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 650px) {
+  .addNoteWraper {
+    width: 80%;
+  }
+  .mainBox {
+    padding: 30px !important;
+  }
+}
+
+.mainBox {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 30px;
+}
+.groupInp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  gap: 10px;
+}
+.groupInp input {
+  width: 70%;
+  padding: 10px;
+  font-size: 2rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+}
+.colorBox {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 20px;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+.colorCircle {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  gap: 5px;
+  justify-content: space-between;
+  margin: 10px 0;
+  cursor: pointer;
+}
