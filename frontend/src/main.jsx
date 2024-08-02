@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <></>,
+        element: 'I have not create this route',
       },
     ],
   },
