@@ -19,6 +19,10 @@ const router = createBrowserRouter([
         path: "/:groupName",
         element: <NoteTextArea />,
       },
+      {
+        path: "*",
+        element: <></>,
+      },
     ],
   },
 ]);
