@@ -19,10 +19,6 @@ const router = createBrowserRouter([
         path: "/:groupName",
         element: <NoteTextArea />,
       },
-      {
-        path: "*",
-        element: 'I have not create this route',
-      },
     ],
   },
 ]);
