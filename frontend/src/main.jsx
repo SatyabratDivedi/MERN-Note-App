@@ -16,10 +16,10 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/:groupName",
+        path: "/group/:groupName",
         element: <NoteTextArea />,
       },
-    ],
+    ]
   },
 ]);
 

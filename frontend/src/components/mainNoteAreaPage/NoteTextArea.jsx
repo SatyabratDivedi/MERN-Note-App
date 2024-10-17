@@ -29,9 +29,10 @@ function NoteTextArea() {
   };
   useEffect(() => {
     fetchData();
-  }, [params, edit]);
+  }, [params]);
 
-  const savePostHandler = async () => {
+  const savePostHandler = async (e) => {
+    e.preventDefault();
     const toastId = toast.loading("Saving post...");
     try {
       const res = await fetch("https://mern-note-app-backend.vercel.app/api/savePost", {
@@ -45,6 +46,7 @@ function NoteTextArea() {
         setEdit("");
         const data = await res.json();
         toast.success(data.msg, { id: toastId });
+        fetchData();
       }
     } catch (error) {
       console.log(error);
@@ -53,14 +55,13 @@ function NoteTextArea() {
   };
 
   const oneDataDelete = async (index) => {
-    const res = await fetch("https://mern-note-app-backend.vercel.app/api/deletePost", {
+    await fetch("https://mern-note-app-backend.vercel.app/api/deletePost", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ postId: currentGroupData?.posts[index]._id }),
     });
-    const data = await res.json();
 
     const updatedData = currentGroupData?.posts?.filter((_, i) => i !== index);
     const updatedGroupData = groupData?.map((item) => {
@@ -127,12 +128,12 @@ function NoteTextArea() {
               ))}
             </div>
           </div>
-          <div className={style.footerArea}>
+          <form onSubmit={savePostHandler} className={style.footerArea}>
             <input onChange={editChangeHandler} type='text' name='edit' value={edit} id='' placeholder='Enter your text here......' />
-            <button onClick={savePostHandler} disabled={edit.length === 0} className={style.sentBox}>
+            <button type="submit" disabled={edit.length === 0} className={style.sentBox}>
               <IoSend style={{ fontSize: "40px", color: edit.length > 0 ? "black" : "gray", cursor: edit.length > 0 ? "pointer" : "not-allowed" }} />
             </button>
-          </div>
+          </form>
         </div>
       )}
     </>

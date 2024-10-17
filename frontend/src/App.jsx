@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Slider from "./components/leftSlider/Slider";
 import AddNoteWraper from "./components/addNoteWraperPopUp/AddNotePopUp.jsx";
 import { Outlet, useLocation } from "react-router-dom";
-import NoteArea from "./components/firstDashboard/FirstDashboard.jsx";
+import FirstDashboard from "./components/firstDashboard/FirstDashboard.jsx";
 
 function App() {
   const [openWraper, setOpenWraper] = useState(false);
@@ -22,10 +22,7 @@ function App() {
       <div>
         <div>
           <Slider openWraper={openWraper} setOpenWraper={setOpenWraper} />
-          <div className=' notesArea'>
-            {showStartingPage && <NoteArea />}
-            <Outlet />
-          </div>
+          <div className=' notesArea'>{showStartingPage ? <FirstDashboard /> : <Outlet />}</div>
         </div>
         {openWraper && (
           <div className='addNoteWraperMain'>

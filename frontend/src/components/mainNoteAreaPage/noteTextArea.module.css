@@ -64,9 +64,9 @@
 .textStoreArea {
   margin-top: 100px;
   width: 75%;
-  height: 700px;
+  height: 100vh;
   position: fixed;
-  overflow-y: scroll
+  overflow-y: auto;
 }
 .textStoreAreaBoxMain{
   display: flex;
@@ -84,7 +84,6 @@
   box-shadow: 0px 6px 7px 0 rgba(0, 0, 0, 0.1);
 }
 .dateArea {
-  overflow-y: scroll;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -104,7 +103,7 @@
 }
 .footerArea {
   width: 75%;
-  height: 20vh;
+  height: 10%;
   background-color: blue;
   position: fixed;
   bottom: 0;

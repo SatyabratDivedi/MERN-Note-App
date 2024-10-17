@@ -38,7 +38,7 @@ function AddNoteWraper({ setOpenWraper }) {
     console.log(data.msg);
 
     setOpenWraper(false);
-    navigate(`/${edit.groupName}`);
+    navigate(`group/${edit.groupName}`);
   };
 
   useEffect(() => {
