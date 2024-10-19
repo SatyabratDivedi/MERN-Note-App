@@ -1,36 +1,29 @@
-import { useEffect, useState } from "react";
+import {useState} from "react";
 import Slider from "./components/leftSlider/Slider";
 import AddNoteWraper from "./components/addNoteWraperPopUp/AddNotePopUp.jsx";
-import { Outlet, useLocation } from "react-router-dom";
-import FirstDashboard from "./components/firstDashboard/FirstDashboard.jsx";
+import {Outlet} from "react-router-dom";
+import {SliderContext} from "./context/SliderContext.js";
 
 function App() {
   const [openWraper, setOpenWraper] = useState(false);
-  const [showStartingPage, setShowStartingPage] = useState(true);
-  const match = useLocation();
-
-  useEffect(() => {
-    if (match.pathname == "/") {
-      setShowStartingPage(true);
-    } else {
-      setShowStartingPage(false);
-    }
-  }, [match.pathname]);
+  const [closeSlider, setCloseSlider] = useState(false);
 
   return (
-    <>
+    <SliderContext.Provider value={{closeSlider, setCloseSlider}}>
       <div>
         <div>
           <Slider openWraper={openWraper} setOpenWraper={setOpenWraper} />
-          <div className=' notesArea'>{showStartingPage ? <FirstDashboard /> : <Outlet />}</div>
+          <div className=" notesArea">
+            <Outlet />
+          </div>
         </div>
         {openWraper && (
-          <div className='addNoteWraperMain'>
+          <div className="addNoteWraperMain">
             <AddNoteWraper openWraper={openWraper} setOpenWraper={setOpenWraper} />
           </div>
         )}
       </div>
-    </>
+    </SliderContext.Provider>
   );
 }
 

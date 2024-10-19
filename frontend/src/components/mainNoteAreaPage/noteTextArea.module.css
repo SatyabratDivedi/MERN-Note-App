@@ -107,7 +107,7 @@
   background-color: blue;
   position: fixed;
   bottom: 0;
-  padding: 20px;
+  padding: 10px;
 }
 .footerArea input {
   width: 100%;
@@ -120,7 +120,7 @@
 .sentBox {
   position: absolute;
   cursor: pointer;
-  bottom: 30px;
+  bottom: 20px;
   right: 30px;
   background-color: white;
   border: none;

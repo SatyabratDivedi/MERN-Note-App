@@ -1,15 +1,15 @@
-import  { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import style from "./noteTextArea.module.css";
-import {  useParams } from "react-router-dom";
-import { IoSend } from "react-icons/io5";
-import { MdDelete } from "react-icons/md";
-import { FaBars } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
-import { openHandler } from "../../reduxStore/slice.js";
+import {useParams} from "react-router-dom";
+import {IoSend} from "react-icons/io5";
+import {MdDelete} from "react-icons/md";
+import {FaBars} from "react-icons/fa6";
 import toast from "react-hot-toast";
+import {SliderContext} from "../../context/SliderContext";
 
 function NoteTextArea() {
-  const dispatch = useDispatch();
+  const {setCloseSlider} = useContext(SliderContext);
+
   const params = useParams();
   const [edit, setEdit] = useState("");
   const [groupData, setGroupData] = useState();
@@ -40,17 +40,17 @@ function NoteTextArea() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ postText: edit, groupId: currentGroupData._id }),
+        body: JSON.stringify({postText: edit, groupId: currentGroupData._id}),
       });
       if (res.ok) {
         setEdit("");
         const data = await res.json();
-        toast.success(data.msg, { id: toastId });
+        toast.success(data.msg, {id: toastId});
         fetchData();
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.msg, { id: toastId });
+      toast.error(error.msg, {id: toastId});
     }
   };
 
@@ -60,7 +60,7 @@ function NoteTextArea() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ postId: currentGroupData?.posts[index]._id }),
+      body: JSON.stringify({postId: currentGroupData?.posts[index]._id}),
     });
 
     const updatedData = currentGroupData?.posts?.filter((_, i) => i !== index);
@@ -72,13 +72,6 @@ function NoteTextArea() {
     });
     setGroupData(updatedGroupData);
   };
-
-  // const groupDelete = (groupName) => () => {
-  //   const updatedData = groupData?.filter((item) => item.groupName !== groupName);
-  //   setGroupData(updatedData);
-  //   dispatch(addData(updatedData));
-  //   navigate("/");
-  // };
 
   const formatDate = (isoString) => {
     const date = new Date(isoString);
@@ -99,19 +92,18 @@ function NoteTextArea() {
       {currentGroupData?.groupName === params.groupName && (
         <div className={style.textAreaContainer}>
           <div className={style.headerArea}>
-            <div onClick={() => dispatch(openHandler(true))} className={style.barBTN}>
-              <FaBars />
+            <div className={style.barBTN}>
+              <FaBars onClick={() => {
+                setCloseSlider(false);
+              }} />
             </div>
-            <div className={style.groupSortName} style={{ background: `${currentGroupData?.color}` }}>
+            <div className={style.groupSortName} style={{background: `${currentGroupData?.color}`}}>
               {currentGroupData?.groupName
                 .split(" ")
                 .map((word) => word[0]?.toUpperCase())
                 .join("")}
             </div>
             <div className={style.groupName}>{currentGroupData.groupName}</div>
-            {/* <span onClick={groupDelete(currentGroupData?.groupName)} className={style.headerDeleteBotton} style={{ transform: "translateY(1px)" }}>
-              <MdDelete />
-            </span> */}
           </div>
           <div className={style.textStoreArea}>
             <div className={style.textStoreAreaBoxMain}>
@@ -120,7 +112,7 @@ function NoteTextArea() {
                   <div>{item?.description}</div>
                   <div className={style.dateArea}>{formatDate(item.createdAt)}</div>
                   <div className={style.deleteArea}>
-                    <span onClick={() => oneDataDelete(i)} style={{ transform: "translateY(1px)" }}>
+                    <span onClick={() => oneDataDelete(i)} style={{transform: "translateY(1px)"}}>
                       <MdDelete />
                     </span>
                   </div>
@@ -129,9 +121,9 @@ function NoteTextArea() {
             </div>
           </div>
           <form onSubmit={savePostHandler} className={style.footerArea}>
-            <input onChange={editChangeHandler} type='text' name='edit' value={edit} id='' placeholder='Enter your text here......' />
+            <input onChange={editChangeHandler} type="text" name="edit" value={edit} id="" placeholder="Enter your text here......" />
             <button type="submit" disabled={edit.length === 0} className={style.sentBox}>
-              <IoSend style={{ fontSize: "40px", color: edit.length > 0 ? "black" : "gray", cursor: edit.length > 0 ? "pointer" : "not-allowed" }} />
+              <IoSend style={{fontSize: "25px", color: edit.length > 0 ? "black" : "gray", cursor: edit.length > 0 ? "pointer" : "not-allowed"}} />
             </button>
           </form>
         </div>

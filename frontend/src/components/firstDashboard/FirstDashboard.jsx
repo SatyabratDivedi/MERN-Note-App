@@ -1,19 +1,17 @@
-import React from 'react';
 import img from './../../assets/image-removebg-preview 1.png';
 import { IoMdLock } from 'react-icons/io';
 import { FaBars } from 'react-icons/fa6';
-import { useDispatch } from 'react-redux';
-import { openHandler } from './../../reduxStore/slice.js';
 import style from './firstDashboard.module.css';
-
+import { SliderContext } from '../../context/SliderContext';
+import { useContext } from 'react';
 
 function NoteArea() {
-  const dispatch = useDispatch();
+  const {setCloseSlider} = useContext(SliderContext);
   return (
     <>
         <div className={style.noteAreaMain}>
-          <div onClick={()=> dispatch(openHandler(true))} className={style.barBTN}>
-        <FaBars />
+          <div className={style.barBTN}>
+        <FaBars onClick={()=> setCloseSlider(false)} />
       </div>
           <div className={style.noNote}>
             <div className={style.imgArea}>
